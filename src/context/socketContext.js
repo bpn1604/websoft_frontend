@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react';
 import { io } from 'socket.io-client';
 
 // Create the socket instance
-const socket = io('http://localhost:5000', {
+const socket = io('https://websoft-6ibz.onrender.com/', {
     withCredentials: true,
     autoConnect: false // We'll connect manually
 });
