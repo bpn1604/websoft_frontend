@@ -1,38 +1,227 @@
-.App {
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+}
+
+/* Login Styles */
+.login-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-container form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.login-container input {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.login-container button {
+  padding: 0.8rem;
+  background-color: #1877f2;
   color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.login-container button:hover {
+  background-color: #166fe5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Chat App Layout */
+.chat-app {
+  display: flex;
+  width: 900px;
+  height: 700px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.user-list {
+  width: 250px;
+  border-right: 1px solid #e4e6eb;
+  overflow-y: auto;
+}
+
+.user-list h3 {
+  padding: 1rem;
+  background-color: #f0f2f5;
+  color: #333;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+.user-list ul {
+  list-style: none;
+}
+
+.user-list li {
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #e4e6eb;
+  transition: background-color 0.2s;
+}
+
+.user-list li:hover {
+  background-color: #f5f6f7;
+}
+
+.user-list li.selected {
+  background-color: #e7f3ff;
+}
+
+.status {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.status.online {
+  color: #31a24c;
+}
+
+.status.offline {
+  color: #a0a4a8;
+}
+
+/* Chat Area */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e4e6eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f0f2f5;
+}
+
+.chat-header h3 {
+  color: #333;
+}
+
+.messages-container {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #f5f6f7;
+}
+
+.message {
+  max-width: 70%;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 18px;
+  position: relative;
+}
+
+.message.sent {
+  background-color: #1877f2;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+.message.received {
+  background-color: white;
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.message small {
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+  opacity: 0.8;
+  text-align: right;
+}
+
+.message.sent small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.message.received small {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.typing-indicator {
+  font-style: italic;
+  color: #65676b;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.message-form {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #e4e6eb;
+  background-color: #f0f2f5;
+}
+
+.message-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.message-form button {
+  padding: 0 1.5rem;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.message-form button:hover {
+  background-color: #166fe5;
+}
+
+.select-user-prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #65676b;
+  font-size: 1.2rem;
 }
